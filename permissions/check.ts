@@ -5,6 +5,7 @@ export enum Roles {
     GUEST = 'GUEST',
   }
   
+  // We should make perms more fine-grained to minimize the chance of giving unwanted access to features
   export const RolePermissions = {
     [Roles.ADMIN]: {
       CAN_VIEW_SENSITIVE_DATA: true,
