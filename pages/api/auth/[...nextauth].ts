@@ -9,6 +9,7 @@ export default NextAuth({
     }),
   ],
   callbacks: {
+      // This method probably should be made more robust. Also we should encrypt the token names 
     async jwt({ token }) {
       switch (token?.name?.toLowerCase()) {
         case 'alice':
