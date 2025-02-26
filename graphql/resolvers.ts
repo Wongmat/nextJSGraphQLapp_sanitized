@@ -87,6 +87,7 @@ const resolvers: IResolvers = {
       if (!session) {
         throw new Error('Session required.');
       }
+      // Should add perms check here. Also we shouldn't return a string with sensitive data
       return dataSources.userAPI.updateUserProfile
         ? dataSources.userAPI.updateUserProfile(username, newProfileData)
         : `Updating user profile for ${username} with data: ${newProfileData}`;
