@@ -30,7 +30,6 @@ class FinancialAccountManager {
 
     public static void main(String[] args) {
         logger.info("Starting banking operations");
-        System.out.println("Connecting to DB with user: " + DB_USER);
         performBankingOperations();
     }
 
@@ -38,11 +37,6 @@ class FinancialAccountManager {
         Map<String, Double> accountBalances = fetchBalancesFromDB();
 
         logger.info("Fetching account balances");
-        System.out.println("Account Balances:");
-        accountBalances.forEach((name, balance) -> 
-            System.out.printf("%s: $%.2f%n", name, balance)
-        );
-
         processTransaction("Alice", "Bob", 200.25);
     }
 
@@ -57,19 +51,19 @@ class FinancialAccountManager {
 
             if (!balances.containsKey(from) || !balances.containsKey(to)) {
                 logger.warning("Invalid transaction: Account not found for " + from + " or " + to);
-                throw new Exception("Invalid transaction: Account not found for " + from + " or " + to);
+                throw new Exception("Invalid transaction: Account not found");
             }
 
             if (balances.get(from) < amount) {
                 logger.warning("Transaction failed: Insufficient funds in account: " + from);
-                throw new Exception("Insufficient funds in account: " + from);
+                throw new Exception("Insufficient funds in account");
             }
 
             balances.put(from, balances.get(from) - amount);
             balances.put(to, balances.get(to) + amount);
             
             logger.info("Transaction successful: " + from + " sent $" + amount + " to " + to);
-            System.out.printf("Transaction successful: %s sent $%.2f to %s%n", from, amount, to);
+            System.out.printf("Transaction successful");
         } catch (Exception e) {
             e.printStackTrace();  
         }
