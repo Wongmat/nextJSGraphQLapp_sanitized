@@ -5,6 +5,7 @@ export class UserAPI {
     // Existing Methods
     // =====================================
 
+    // Looks like no authentication is needed on these endpoints, this is a big problem
     async getUserDetails(userId: string) {
         const response = await fetch(`https://circle-api.com/user/${userId}/details`, {
             method: 'GET',
