@@ -21,10 +21,9 @@ class FinancialAccountManager {
             DB_USER = config.getDatabase().getDbUser();
             DB_PASSWORD = config.getDatabase().getDbPassword();
             API_KEY = config.getApi().getPaymentGatewayKey();
-            logger.info("user Info" + DB_USER + ", " + API_KEY);
 
         } catch (IOException e) {
-            e.printStackTrace(); 
+            e.printStackTrace();  // Shouldn't print stack trace here as it may contain sensitive information
         }
     }
 
