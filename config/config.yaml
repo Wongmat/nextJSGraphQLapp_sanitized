@@ -1,20 +1,20 @@
 # config.yaml
 
 database:
-  dbUser: "{{ssm:/prod/db/user}}"
-  dbPassword: "{{ssm:/prod/db/password}}"
-  dbHost: "{{secretsmanager:/prod/db/host}}"
-  dbPort: "{{secretsmanager:/prod/db/port}}"
+  dbUser: "{{DB_USER}}"
+  dbPassword: "{{DB_PASSWORD}}"
+  dbHost: "{{DB_HOST}}"
+  dbPort: "{{DB_PORT}}"
 
 api:
-  paymentGatewayKey: "Fg7H2yLdM8VpQz3N6RbXtPWaK4CsJ9T5"  
-  smsProviderKey: "X1Y2Z3A4B5C6D7E8F9G0H1I2J3K4L5M6" 
-  internalServiceToken: "{{secretsmanager:/prod/api/internalService}}"  
-  analyticsIntegrationKey: "{{ssm:/prod/api/analytics}}"  
+  paymentGatewayKey: "{{PAYMENT_GAYWAY_KEY}}"  
+  smsProviderKey: "{{SMS_PROVIDER_KEY}}" 
+  internalServiceToken: "{{INTERNAL_SERVICE_TOKEN}}"  
+  analyticsIntegrationKey: "{{ANALYTICS_INTEGRATION_KEY}}"  
 
 thirdParty:
-  awsAccessKey: "{{secretsmanager:/aws/access-key}}"
-  awsSecretKey: "{{ssm:/aws/secret-key}}"
-  analyticsKey: "{{secretsmanager:/analytics/key}}"
-  smsServiceKey: "{{ssm:/sms/service-key}}"
+  awsAccessKey: "{{AWS_ACCESS_KEY}}"
+  awsSecretKey: "{{AWS_SECRET_KEY}}"
+  analyticsKey: "{{ANALYTICS_KEY}}"
+  smsServiceKey: "{{SMS_SERVICE_KEY}}"
 
